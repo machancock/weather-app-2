@@ -38,26 +38,34 @@ const App = () => {
             <h3>{data.name}</h3>
           </div>
           <div className="temp">
-            {data.main ? <h1>{data.main.temp.toFixed()}°F</h1> : null}
+            {data.main ? <h2>{data.main.temp.toFixed()}°F</h2> : null}
           </div>
           <div className="description">
-            {data.weather ? <p>{data.weather[0].main}</p> : null}
+            {data.weather ? <h5>{data.weather[0].main}</h5> : null}
           </div>
         </div>
 
         {data.name !== undefined &&
           <div className="bottom">
+            <div className="high">
+            <h6>High <span>☀️</span></h6>
+              {data.main ? <p className='bold'>{data.main.temp_max.toFixed()}°F</p> : null}
+            </div>
+            <div className="low">
+            <h6>Low <span>🌥</span></h6>
+              {data.main ? <p className='bold'>{data.main.temp_min.toFixed()}°F</p> : null}
+            </div>
             <div className="feels">
+            <h6>Feels Like <span>🌡</span></h6>
               {data.main ? <p className='bold'>{data.main.feels_like.toFixed()}°F</p> : null}
-              <p>Feels Like</p>
             </div>
             <div className="humidity">
+              <h6>Humidity <span>💦</span></h6>
               {data.main ? <p className='bold'>{data.main.humidity}%</p> : null}
-              <p>Humidity</p>
             </div>
             <div className="wind">
+              <h6>Wind Speed <span>💨</span></h6>
               {data.wind ? <p className='bold'>{data.wind.speed.toFixed()} MPH</p> : null}
-              <p>Wind Speed</p>
             </div>
           </div>
         }
