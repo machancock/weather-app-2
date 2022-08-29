@@ -23,7 +23,7 @@ const App = () => {
 
   return (
     <div className="app">
-      <h1>The Weather App</h1>
+      <h1>The Weather App 2.0</h1>
       <div className="search">
         <input
           value={location}
