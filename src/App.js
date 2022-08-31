@@ -29,7 +29,7 @@ const App = () => {
           value={location}
           onChange={event => setLocation(event.target.value)}
           onKeyPress={searchLocation}
-          placeholder='Enter Location'
+          placeholder='Enter City Name'
           type="text" />
       </div>
       <div className="container">
@@ -38,26 +38,19 @@ const App = () => {
             <h3>{data.name}</h3>
           </div>
           <div className="temp">
-            {data.main ? <h2>{data.main.temp.toFixed()}°F</h2> : null}
+            {data.main ? <h2>{data.main.temp.toFixed()}°</h2> : null}
           </div>
           <div className="description">
             {data.weather ? <h5>{data.weather[0].main}</h5> : null}
+            {data.main ? <h5>H:{data.main.temp_max.toFixed()}°  L:{data.main.temp_min.toFixed()}°</h5> : null}
           </div>
         </div>
 
         {data.name !== undefined &&
           <div className="bottom">
-            <div className="high">
-            <h6>High <span>☀️</span></h6>
-              {data.main ? <p className='bold'>{data.main.temp_max.toFixed()}°F</p> : null}
-            </div>
-            <div className="low">
-            <h6>Low <span>🌥</span></h6>
-              {data.main ? <p className='bold'>{data.main.temp_min.toFixed()}°F</p> : null}
-            </div>
             <div className="feels">
             <h6>Feels Like <span>🌡</span></h6>
-              {data.main ? <p className='bold'>{data.main.feels_like.toFixed()}°F</p> : null}
+              {data.main ? <p className='bold'>{data.main.feels_like.toFixed()}°</p> : null}
             </div>
             <div className="humidity">
               <h6>Humidity <span>💦</span></h6>
